@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block content %}
+<header>
+		<div class="container">
+			<div id="branding">
+				<h1><span class="highlight">eHomeBid </span>Search for a Home</h1>
+			</div>
+			<nav>
+				<ul>
+					<li class="current"><a href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="services.html">Services</a></li>
+					<li><a href="{{url_for('login') }}">Login</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<section id="newsletter">
+		<div class="container">
+			<h1>Search a Home by Zipcode</h1>
+			<form>
+				<input type="" name="" placeholder="Enter Zipcode">
+				<button type="Submit" class="button_1"> Search</button>
+			</form>
+
+		</div>
+	</section>
+
+	<section id="showcase">
+				
+	</section>
+
+	<section id="main">
+		<div class="container">
+			<article id="main-col">
+			<h1 class="page-title">Services</h1>
+			<ul id="services">
+				<li>
+					<h3>Website Design</h3>
+					<p>We design superb websites at an affordable price</p>
+					<p>Pricing $1,000 to $3,000</p>
+				</li>
+				<li>
+					<h3>Website Maintenance</h3>
+					<p>We design superb websites at an affordable price</p>
+					<p>Pricing $250</p>
+				</li>
+				<li>
+					<h3>Website Hosting</h3>
+					<p>We design superb websites at an affordable price</p>
+					<p>Pricing $30 per month</p>
+				</li>
+			</ul>
+			</article>
+			<aside id="sidebar">
+				<div class="dark">
+				<h3>What We Do</h3>
+				<p>We design, develop and express the client's idea in a manner that is satisfying and worldy ackowledge using every kind of deces.</p>
+			</div>
+			</aside>
+		</div>
+	</section>
+
+	<section id="boxes">
+		<div class="container">
+			<div class="box">
+				<h3> John Doe</h3>
+				<p>
+					Another Milistone
+				</p>
+			</div>
+			<div class="box">
+				<h3>Will Mark</h3>
+				<p>
+					Another Milistone
+				</p>
+			</div>
+			<div class="box">
+				<h3>Peter Munene</h3>
+				<p>
+					Trusted client
+				</p>
+			</div>
+		</div>
+	</section>
+
+{% for p in posts %}
+<strong>Title:</strong>{{ p.title }}<br/>
+<strong>Post:</strong>{{ p.post }}<br/>
+{% endfor %}
+
+    <footer>
+		<p>Acme Web Design, Copyright @copy: 2019</p>
+	</footer>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<head>
+	<meta charset ="UTF-8">
+	<meta name ="Viewport" content = "width=device-width">
+	<meta name="description" content="Own a home in a matter of minutes">
+	<meta name="keywords" content="Bid for a House, Searching for a House, house bid with zipcode">
+	<meta name="author" content="Douglas Owiye">
+
+
+<title>eHomeBid | Welcome</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+	
+</head>
+<body>
+<div class="container">
+	{% for message in get_flashed_messages() %}
+	<div class="flash">{{ message }}</div>
+	{% endfor %}
+
+	{% if error %}
+	<p class="error"><strong>Error:</strong> {{error }}</p>
+	{% endif %}
+
+	{% block content %}
+    {% endblock %}
+</div>
+
+</body>
+</html>

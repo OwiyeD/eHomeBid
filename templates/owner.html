@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<header>
+		<div class="container">
+			<div id="branding">
+				<h1><span class="highlight">eHomeBid </span></h1>
+			</div>
+			<nav>
+				<ul>
+					<li class="current"><a href="">Home</a></li>
+					<li><a href="{{url_for('agent') }}">Notifications</a></li>
+					<li><a href="{{url_for('add') }}">Add Property</a></li>
+					<li><a href="{{url_for('main') }}"> Logout</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<section id="newsletter">
+		<div class="container">
+			<h1>Subscribe to our newsletter</h1>
+			<form>
+				<input type="email" placeholder="Enter Email...">
+				<button type="Submit" class="button_1">Subscribe</button>
+			</form>
+		</div>
+	</section>
+
+	<section id="main">
+		<div class="container">
+			<article id="main-col">
+			<h1 class="page-title">About Us</h1>
+			<p>Looking for easy and faster way of selling your home? Worry No More! eHomeBid Got Your Back. eHomeBid has trusted agents who markets your till it get sold within a month. Just add your home for listing and get things going.</p>
+			<p>We market through our trusted agents who always get the right value for your home at shortest time possible. After listing your home an agent will contact you and he will help you get your property sold. In case of difficulties just call the support team at any time. Happy selling</p>
+			</article>
+			<aside id="sidebar">
+				<div class="dark">
+				<h3>What We Do</h3>
+				<p>We design, develop and express the client's idea in a manner that is satisfying and worldy ackowledge using every kind of deces.</p>
+			</div>
+			</aside>
+		</div>
+	</section>
+	<footer>
+		<p>Acme Web Design, Copyright @copy: 2019</p>
+	</footer>
+{% endblock %}

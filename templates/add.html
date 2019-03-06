@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<header>
+		<div class="container">
+			<div id="branding">
+				<h1><span class="highlight">Acme </span>Web Design</h1>
+			</div>
+			<nav>
+				<ul>
+					<li><a href="{{ url_for('owner') }}">Home</a></li>
+					<li class="current"><a href="about.html">Agents</a></li>
+					<li><a href="{{ url_for('logout') }}"> Logout</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<h2>Add a Property!</h2>
+	<h3>Add a new post:</h3>
+	<form action="{{ url_for('add') }}" method="post" class="add">
+		<div>
+			<label>Title:</label>
+			<input name="title" type="text">
+		</div>
+		<div>
+			<label>Post:</label>
+			<textarea name="post" rows="5" cols="40"></textarea>
+		</div>
+		<div class="">
+			<input class="button" type="submit" value="Save">
+		</div>
+	</form>
+	<br>
+	<br>
+	<footer>
+		<p>Acme Web Design, Copyright @copy: 2019</p>
+	</footer>
+{% endblock %}
