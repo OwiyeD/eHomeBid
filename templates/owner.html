@@ -9,7 +9,7 @@
 				<ul>
 					<li class="current"><a href="">Home</a></li>
 					<li><a href="{{url_for('agent') }}">Notifications</a></li>
-					<li><a href="{{url_for('add') }}">Add Property</a></li>
+					<li><a href="{{url_for('new_property') }}">Add Property</a></li>
 					<li><a href="{{url_for('main') }}"> Logout</a></li>
 				</ul>
 			</nav>
@@ -29,9 +29,99 @@
 	<section id="main">
 		<div class="container">
 			<article id="main-col">
-			<h1 class="page-title">About Us</h1>
-			<p>Looking for easy and faster way of selling your home? Worry No More! eHomeBid Got Your Back. eHomeBid has trusted agents who markets your till it get sold within a month. Just add your home for listing and get things going.</p>
-			<p>We market through our trusted agents who always get the right value for your home at shortest time possible. After listing your home an agent will contact you and he will help you get your property sold. In case of difficulties just call the support team at any time. Happy selling</p>
+				<table>
+					<h1 class="page-title">Open Properties</h1>
+					<thead>
+						<tr>
+							<th width="300px"><strong>Property Title</strong></th>
+							<th width="300px"><strong>Sold Date</strong></th>
+							<th width="300px"><strong>Amount</strong></th>
+							<th width="300px"><strong>Agent:</strong></th>
+							<th width="300px"><strong>Buyer</strong></th>
+
+						</tr>
+					</thead>
+					{% for property in open_properties %}
+					<tr>
+						<td width="300px">{{ property.title }}</td>
+						<td width="300px">{{ property.due_date }}</td>
+						<td width="300px">{{ property.amount }}</td>
+						<td>
+							<a href="{{ url_for('remove_property', property_ID = property.property_ID) }}">Delete</a>
+							<a href="{{ url_for('complete', property_ID = property.property_ID) }}">Complete</a>
+						</td>
+					</tr>
+					{% endfor %}
+				</table>
+				<div>
+					<table>
+						<h1 class="page-title"> Completed Properties</h1>
+						<thead>
+							<tr>
+								<th width="300px"><strong>Property Title</strong></th>
+								<th width="300px"><strong>Posted Date</strong></th>
+								<th width="300px"><strong>Agent</strong></th>
+								<th width="300px"><strong>Amount Sold</strong></th>
+								<th width="300px"><strong>Buyer</strong></th>
+								<th width="400px"><strong>Owner's Remarks about the agent</strong></th>
+								<th width="400px"><strong>Buyer's Remarks about the agent</strong></th>
+							</tr>
+						</thead>
+						{% for close in complete %}
+						<tr>
+							<td width="300px">{{ close.title }}</td>
+							<td width="300px">{{ close.posted_date }}</td>
+							<td width="300px">{{ close.agent_ID }}</td>
+							<td width="300px">{{ close.amount }}</td>
+							<td width="300px">{{ close.buyer }}</td>
+							<td width="400px">{{ close.o_remarks }}</td>
+							<td width="400px">{{ close.b_remarks }}</td>
+						</tr>
+						{% endfor %}
+				    </table>
+				</div>
+				<div>
+					<table>
+						<h1 class="page-title">users</h1>
+						<thead>
+							<tr>
+								<th>Username</th>
+								<th>Password</th>
+							</tr>
+						</thead>
+						{% for k in users %}
+						<tr>
+							<td>{{ k.username }}</td>
+							<td>{{ k.password }}</td>
+						</tr>
+						{% endfor %}
+					</table>
+				</div>
+				<div>
+					<table>
+						<h1 class="page-title">Expired Proeprt</h1>
+						<p>The properties Listed bellow have their selling dates expired</p>
+						<thead>
+							<tr>
+								<th width="300px"><strong>Property Title</strong></th>
+								<th width="300px"><strong>Posted Date</strong></th>
+								<th width="300px"><strong>Due Date</strong></th>
+								<th width="300px"><strong>Amount</strong></th>
+								<th width="300px"><strong>Agent</strong></th>
+							</tr>
+						</thead>
+						{% for exp in expired %}
+						<tr>
+							<td width="300px">{{ exp.title }}</td>
+							<td width="300px">{{ exp.posted_date }}</td>
+							<td width="300px">{{ exp.due_date }}</td>
+							<td width="300px">{{ exp.amount }}</td>
+							<td width="300px">{{ exp.agent }}</td>
+						</tr>
+						{% endfor %}
+					</table>
+				</div>
+			
 			</article>
 			<aside id="sidebar">
 				<div class="dark">

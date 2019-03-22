@@ -1,5 +1,53 @@
 {% extends "base.html" %}
 {% block content %}
-<h2> List of Houses </h2>
-<p><a href="{{ url_for('logout') }}">Log out</a></p>
+<header>
+		<div class="container">
+			<div id="branding">
+				<h1><span class="highlight">eHomeBid </span></h1>
+			</div>
+			<nav>
+				<ul>
+					<li class="current"><a href="">Home</a></li>
+					<li><a href="{{url_for('agent') }}">Notifications</a></li>
+					<li><a href="{{url_for('agent') }}">Buy Zipcode</a></li>
+					<li><a href="{{url_for('main') }}"> Logout</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<section id="newsletter">
+		<div class="container">
+			<h1>Search a Property</h1>
+			<form>
+				<input type="search" placeholder="Enter key value...">
+				<button type="Submit" class="button_1">Search</button>
+			</form>
+		</div>
+	</section>
+
+	<div>
+		{% for z in zipcode %}
+		<h1><strong>{{ z.zipcode }}</strong></h1>
+		{% endfor %}
+		<h2><strong>Summarry of Properties:</strong></h2>
+		{% for z in zipcode %}
+		<strong>Number of Listed Homes:</strong>{{ z.list }}<br>
+		<strong>Total Sold:</strong>{{ z.due_date }}
+		<strong>Total Not Sold:</strong>{{ z._sold }}
+		<strong>Percentage Sold in Time:</strong>{{ z.percent }}
+		<strong>Number of Bidders:</strong>{{ z.bidders }}
+		<br>
+		<br>
+		<h1><strong>Properties in {{ z.zipcode }}</strong></h1>
+		{{ z.photo }}<br>
+		<strong>Title:</strong>{{ z.title }}<br>
+		<strong>Due date:</strong>{{ z.due_date }}<br>
+		<strong>Amount:</strong>{{ z.amount }}<br>
+		<strong>Owner:</strong>{{ z.owner }}<br>
+		<strong>Location:</strong>{{ z.location }}<br>
+		<strong>Number of Bidders:</strong>{{ z.bidders }}<br>
+		{% endfor %}
+	</div>
+
 {% endblock %}

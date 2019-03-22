@@ -73,19 +73,20 @@ def owner():
 	
 @app.route('/add', methods=['GET','POST'])
 def add():
-	title = request.form['title']
-	post = request.form['post']
-	if not title or not post:
-		flash("All fields are required")
-		return redirect(url_for('add'))
-	else:
-		g.db = connect_db()
-		g.db.execute('insert into posts (title, post) values(?,?)',
-		[request.form['title'], request.form['post']])
-		g.db.commit()
-		g.db.close()
-		flash('Successfully added')
-		return redirect(url_for('add'))
+	if request.form:
+		title = request.form['title']
+		post = request.form['post']
+		if not title or not post:
+			flash("All fields are required")
+			return redirect(url_for('add'))
+		else:
+			g.db = connect_db()
+			g.db.execute('insert into posts (title, post) values(?,?)',
+				[request.form['title'], request.form['post']])
+			g.db.commit()
+			g.db.close()
+			flash('Successfully added')
+			return redirect(url_for('add'))
 	return render_template('add.html')
 
 

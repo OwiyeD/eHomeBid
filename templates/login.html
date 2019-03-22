@@ -1,5 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
+<header>
+		<div class="container">
+			<div id="branding">
+				<h1><span class="highlight">eHomeBid </span></h1>
+			</div>
+			<nav>
+				<ul>
+					<li class="current"><a href="{{ url_for('main') }}">Home</a></li>
+					<li><a href="about.html">About Us</a></li>
+					<li><a href="#">Contact Us</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
 <div class="login-wrapper">
 	<h2>Welcome to eHomeBids</h2>
 	<h3>Login or Signup if new here</h3>
@@ -16,5 +30,23 @@
 			<button type="submit">Login</button>
 		</div>
 	</form>
+</div>
+<div class="login-wrapper">
+	<form action="{{ url_for('post')}}" method="post">
+		<h1>post</h1>
+		<div>
+			<label for="title">Post:</label>
+			<input type="text" id="username" name="post" value="{{request.form.title}}">
+		</div>
+		<div>
+			<label for="post">Post:</label>
+			<input type="text" id="password" name="post" value="{{request.form.post}}">
+		</div>
+		<div>
+			<button type="submit">Login</button>
+		</div>
+	</form>
+	
+	
 </div>
 {% endblock %}

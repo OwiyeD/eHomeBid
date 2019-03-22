@@ -3,7 +3,7 @@
 <header>
 		<div class="container">
 			<div id="branding">
-				<h1><span class="highlight">Acme </span>Web Design</h1>
+				<h1><span class="highlight">eHomeBid </span></h1>
 			</div>
 			<nav>
 				<ul>
@@ -16,51 +16,63 @@
 	</header>
 	<h2>Add a Property!</h2>
 	<h3>Add a new post:</h3>
-	<form action="{{ url_for('add') }}" method="post" class="add">
+	<form action="{{ url_for('new_property') }}" method="post" class="new_property">
+		
 		
 		<div>
-			<label for="inputFile">File Input</label>
+			<label for="inputFile">File Input:</label>
 			<input type="file" name="photo">
 		</div>
+		<br>
 		<div>
 			<label>Title:</label>
 			<input name="title" type="text">
 		</div>
+		<br>
+
 		<div>
 			<label>Due Date (mm/dd/yyyy):</label>
 			<input name="due_date" type="text" style="width: 160px;">
 		</div>
+		<br>
 		<div>
-			<label>Sell_Type</label>
-			<select name="sell_type" width="100px">
+			<label>Sell_Type:</label>
+			<select name="sell_type" width="300px">
 				<option value="fixed">Fixed</option>
 				<option value="bid">Bid</option>
 			</select>
 		</div>
+		<br>
 		<div>
 			<label>Amount:</label>
 			<input type="text" name="amount">
 		</div>
+		<br>
 		<div>
 			<label>Zipcode:</label>
 			<input type="text" name="zipcode">
 		</div>
+		<br>
 		<div>
 			<label>Description:</label>
 			<textarea name="description" rows="8" cols="60"></textarea>
 		</div>
+		<br>
 		<div>
-			<label>Bedrooms</label>
+			<label>Bedrooms:</label>
 			<input type="text" name="Num_Of_bedrooms">
 		</div>
+		<br>
 		<div>
 			<label>House Size:</label>
 			<input type="text" name="size" placeholder="45m by 60m">
 		</div>
+		<br>
 		<div>
 			<label>Location:</label>
 			<input type="text" name="location">
 		</div>
+		<br>
 
 		<div class="">
 			<input class="button" type="submit" value="Save">
